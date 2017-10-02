@@ -22,3 +22,8 @@ LyngkTestCase.prototype.testB = function () {
 
     assertEquals(cmpt, 43);
 };
+
+LyngkTestCase.prototype.testC = function() {
+    var cel = new Lyngk.Coordinates('A', 3);
+    assertEquals(cel.toString(),'A3');
+};
