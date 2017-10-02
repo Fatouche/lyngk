@@ -1,9 +1,10 @@
 "use strict";
 
-Lyngk.Coordinates = function (c, l) {
+Lyngk.Coordinates = function (col, lig) {
 
-    this.c = c;
-    this.l = l;
+    var c = col;
+    var l = lig;
+
     var tab = ['A3',
         'B2','B3','B4','B5',
         'C1','C2','C3','C4','C5','C6','C7',
@@ -15,7 +16,11 @@ Lyngk.Coordinates = function (c, l) {
         'I7'];
 
     this.valid = function(){
-        return tab.indexOf(c,l) != -1;
+        return tab.indexOf(c+l) !== -1;
+    };
+
+    this.toString = function(){
+        return c+l;
     };
 
 };
