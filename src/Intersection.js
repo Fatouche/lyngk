@@ -16,8 +16,13 @@ Lyngk.Intersection = function () {
     };
 
     this.pose = function(color) {
-        piece = new Lyngk.Piece(color);
-        celState = Lyngk.State.ONE_PIECE;
+        if(!piece) {
+            piece = new Lyngk.Piece(color);
+            celState = Lyngk.State.ONE_PIECE;
+        }else{
+            piece = new Lyngk.Piece(color);
+            celState = Lyngk.State.STACK;
+        }
     };
 
 };

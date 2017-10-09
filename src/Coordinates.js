@@ -34,7 +34,7 @@ Lyngk.Coordinates = function (col, lig) {
     };
 
     this.hash = function(){
-        return c.charCodeAt()+l;
+        return c.charCodeAt()+ '' + l;
     };
 
 };
