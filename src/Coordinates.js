@@ -20,7 +20,7 @@ Lyngk.Coordinates = function (col, lig) {
     };
 
     this.toString = function(){
-        return c+l;
+        return 'invalide';
     };
 
 };
