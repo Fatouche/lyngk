@@ -23,8 +23,14 @@ Lyngk.Coordinates = function (col, lig) {
         if(this.valid()){
             return c + l;
         }else {
-            return 'invalide';
+            return 'invalid';
         }
+    };
+
+
+    this.clone = function(){
+        var celClone = new Lyngk.Coordinates(c,l);
+        return celClone;
     };
 
 };
