@@ -41,3 +41,10 @@ LyngkTestCase.prototype.testE = function()
 
     assertEquals(cel.toString(), celClone.toString());
 };
+
+LyngkTestCase.prototype.testF = function()
+{
+    var cel = new Lyngk.Coordinates('A',3);
+    assertEquals(cel.hash(), 68);
+
+};
