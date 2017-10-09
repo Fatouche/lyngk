@@ -27,3 +27,17 @@ LyngkTestCase.prototype.testC = function() {
     var cel = new Lyngk.Coordinates('A', 3);
     assertEquals(cel.toString(),'A3');
 };
+
+LyngkTestCase.prototype.testD = function()
+{
+    var cel = new Lyngk.Coordinates('A',1);
+    assertEquals(cel.toString(), "invalid");
+};
+
+LyngkTestCase.prototype.testE = function()
+{
+    var cel = new Lyngk.Coordinates('A',3);
+    var celClone = cel.clone();
+
+    assertEquals(cel.toString(), celClone.toString());
+};
