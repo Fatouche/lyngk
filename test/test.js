@@ -45,6 +45,32 @@ LyngkTestCase.prototype.testE = function()
 LyngkTestCase.prototype.testF = function()
 {
     var cel = new Lyngk.Coordinates('A',3);
-    assertEquals(cel.hash(), 68);
+    assertEquals(cel.hash(), 683);
+
+};
+
+LyngkTestCase.prototype.testF = function()
+{
+    var intersec = new Lyngk.Intersection();
+    assertEquals(intersec.getState(), Lyngk.State.VACANT);
+
+};
+
+LyngkTestCase.prototype.testG = function()
+{
+    var intersec = new Lyngk.Intersection();
+    intersec.pose(Lyngk.Color.BLUE);
+    assertEquals(intersec.getState(),Lyngk.State.ONE_PIECE);
+    assertEquals(intersec.getColor(), Lyngk.Color.BLUE);
+
+};
+
+LyngkTestCase.prototype.testH = function()
+{
+    var intersec = new Lyngk.Intersection();
+    intersec.pose(Lyngk.Color.BLUE);
+    intersec.pose(Lyngk.Color.RED);
+    assertEquals(intersec.getState(),Lyngk.State.STACK);
+    assertEquals(intersec.getColor(), Lyngk.Color.RED);
 
 };
