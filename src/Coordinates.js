@@ -33,4 +33,8 @@ Lyngk.Coordinates = function (col, lig) {
         return celClone;
     };
 
+    this.hash = function(){
+        return c.charCodeAt()+l;
+    };
+
 };
