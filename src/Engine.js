@@ -9,7 +9,7 @@ Lyngk.Engine = function () {
 
     this.initPlateau = function()
     {
-        for (var coordo in coordonneeInterssection) {
+        for (var coord in coordonneeInterssection) {
             if (coordonneeInterssection.hasOwnProperty(coord))
             {
                 coordonneeInterssection[coord].poser(Lyngk.Color.IVORY);
