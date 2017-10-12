@@ -2,12 +2,12 @@
 
 var LyngkTestCase = TestCase("LyngkTestCase");
 
-LyngkTestCase.prototype.testA = function () {
+LyngkTestCase.prototype.test1 = function () {
     var cel = new Lyngk.Coordinates('A', 1);
     assertFalse(cel.valid());
 };
 
-LyngkTestCase.prototype.testB = function () {
+LyngkTestCase.prototype.test2 = function () {
     var cmpt = 0;
     var cel;
 
@@ -23,18 +23,18 @@ LyngkTestCase.prototype.testB = function () {
     assertEquals(cmpt, 43);
 };
 
-LyngkTestCase.prototype.testC = function() {
+LyngkTestCase.prototype.test3 = function() {
     var cel = new Lyngk.Coordinates('A', 3);
     assertEquals(cel.toString(),'A3');
 };
 
-LyngkTestCase.prototype.testD = function()
+LyngkTestCase.prototype.test4 = function()
 {
     var cel = new Lyngk.Coordinates('A',1);
     assertEquals(cel.toString(), "invalid");
 };
 
-LyngkTestCase.prototype.testE = function()
+LyngkTestCase.prototype.test5 = function()
 {
     var cel = new Lyngk.Coordinates('A',3);
     var celClone = cel.clone();
@@ -42,21 +42,21 @@ LyngkTestCase.prototype.testE = function()
     assertEquals(cel.toString(), celClone.toString());
 };
 
-LyngkTestCase.prototype.testF = function()
+LyngkTestCase.prototype.test6 = function()
 {
     var cel = new Lyngk.Coordinates('A',3);
-    assertEquals(cel.hash(), 683);
+    assertEquals(cel.hash(), 653);
 
 };
 
-LyngkTestCase.prototype.testF = function()
+LyngkTestCase.prototype.test7 = function()
 {
     var intersec = new Lyngk.Intersection();
     assertEquals(intersec.getState(), Lyngk.State.VACANT);
 
 };
 
-LyngkTestCase.prototype.testG = function()
+LyngkTestCase.prototype.test8 = function()
 {
     var intersec = new Lyngk.Intersection();
     intersec.pose(Lyngk.Color.BLUE);
@@ -65,7 +65,7 @@ LyngkTestCase.prototype.testG = function()
 
 };
 
-LyngkTestCase.prototype.testH = function()
+LyngkTestCase.prototype.test9 = function()
 {
     var intersec = new Lyngk.Intersection();
     intersec.pose(Lyngk.Color.BLUE);
@@ -73,4 +73,20 @@ LyngkTestCase.prototype.testH = function()
     assertEquals(intersec.getState(),Lyngk.State.STACK);
     assertEquals(intersec.getColor(), Lyngk.Color.RED);
 
+};
+
+LyngkTestCase.prototype.test10 = function () {
+    var intersect = new Lyngk.Intersection();
+    intersect.pose(Lyngk.Color.BLUE);
+    intersect.pose(Lyngk.Color.RED);
+    intersect.pose(Lyngk.Color.BLACK);
+    intersect.pose(Lyngk.Color.GREEN);
+    intersect.pose(Lyngk.Color.IVORY);
+    assertEquals(intersect.getState(),Lyngk.State.FULL_STACK);
+};
+
+LyngkTestCase.prototype.test11 = function () {
+    var plateauFull = new Lyngk.Engine();
+    plateauFull.initPlateau();
+    assertTrue(plateauFull.plateau1PieceFull());
 };
