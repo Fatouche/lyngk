@@ -113,3 +113,26 @@ LyngkTestCase.prototype.test12 = function()
     }
     assertTrue(flag);
 };
+
+LyngkTestCase.prototype.test13 = function()
+{
+    var jeu = new Lyngk.Engine();
+    jeu.initPlateauCouleur();
+
+    var plateau = jeu.plateau();
+
+    for(var ind in plateau){
+        assertEquals(plateau[ind].getHauteur(),1);
+    }
+};
+
+LyngkTestCase.prototype.test14 = function () {
+   var jeu = new Lyngk.Engine();
+   jeu.initPlateauCouleur();
+
+   var  plateau = jeu.plateau();
+
+    for(var ind in plateau){
+        assertEquals(plateau[ind].getColor(), plateau[ind].getTop().getColor());
+    }
+}
