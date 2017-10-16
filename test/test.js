@@ -90,3 +90,26 @@ LyngkTestCase.prototype.test11 = function () {
     plateauFull.initPlateau();
     assertTrue(plateauFull.plateau1PieceFull());
 };
+
+LyngkTestCase.prototype.test12 = function()
+{
+    var engine = new Lyngk.Engine();
+    engine.initPlateauCouleur();
+    var plateau = engine.plateau();
+    var colorNumber = [0,0,0,0,0,0];
+    for (var coord in plateau) {
+        if (plateau.hasOwnProperty(coord))
+        {
+            colorNumber[plateau[coord].getColor()]++;
+        }
+    }
+    var flag = true;
+    for(var i = 0; i < colorNumber.length; i++)
+    {
+        if(i <= 4 && colorNumber[i] != 8)
+            flag = false;
+        else if(i == 5 && colorNumber[i] != 3)
+            flag = false;
+    }
+    assertTrue(flag);
+};
