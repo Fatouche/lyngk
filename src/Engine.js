@@ -57,10 +57,12 @@ Lyngk.Engine = function () {
     };
 
     this.deplace = function(a,b) {
-        var piece = coordonneeInterssection[a].getPiece();
-        for (var p in piece){
-            coordonneeInterssection[b].pose(piece[p].getColor());
-            coordonneeInterssection[a].remove(parseInt(p));
+        if(coordonneeInterssection[b].getState()!= Lyngk.State.VACANT) {
+            var piece = coordonneeInterssection[a].getPiece();
+            for (var p in piece) {
+                coordonneeInterssection[b].pose(piece[p].getColor());
+                coordonneeInterssection[a].remove(parseInt(p));
+            }
         }
     };
 

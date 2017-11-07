@@ -141,7 +141,6 @@ LyngkTestCase.prototype.test15 = function () {
     var engine = new Lyngk.Engine();
     engine.initPlateauCouleur();
     var plateau = engine.plateau();
-    console.log(plateau["A3"].getState());
     var couleurTest = plateau["A3"].getColor();
     engine.deplace("A3","B3");
 
@@ -171,4 +170,23 @@ LyngkTestCase.prototype.test16 = function () {
     assertEquals(plateau["B2"].getState(),Lyngk.State.STACK);
     assertEquals(plateau["B2"].getColor(),couleurTest);
     assertEquals(plateau["B2"].getHauteur(),3);
+};
+
+LyngkTestCase.prototype.test17 = function () {
+    var engine = new Lyngk.Engine();
+    engine.initPlateauCouleur();
+    var plateau = engine.plateau();
+
+    var couleurTest = plateau["B2"].getColor();
+
+    engine.deplace("B2","B3");
+    engine.deplace("B3","B2");
+
+    assertEquals(plateau["B3"].getHauteur(),2);
+    assertEquals(plateau["B3"].getColor(),couleurTest);
+    assertEquals(plateau["B2"].getHauteur(),0);
+
+    assertEquals(plateau["B3"].getState(),Lyngk.State.STACK);
+    assertEquals(plateau["B2"].getState(),Lyngk.State.VACANT);
+
 };
