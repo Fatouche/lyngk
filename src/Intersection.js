@@ -29,4 +29,24 @@ Lyngk.Intersection = function () {
         return pieces.length;
     };
 
+    this.topPiece=function(){
+        return pieces[pieces.length-1];
+    };
+
+    this.getPiece=function(){
+        return pieces;
+    };
+
+
+    this.remove=function(i){
+        pieces = pieces.slice(i,i);
+        if(pieces.length==0) {
+            state = Lyngk.State.VACANT;
+        }else if(pieces.length >  0 && pieces.length < 4){
+            state = Lyngk.State.STACK;
+        }else if(pieces.length >= 4){
+            state = Lyngk.State.FULL_STACK;
+        }
+    };
+
 };
