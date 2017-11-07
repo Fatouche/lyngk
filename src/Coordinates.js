@@ -27,7 +27,6 @@ Lyngk.Coordinates = function (col, lig) {
         }
     };
 
-
     this.clone = function(){
         var celClone = new Lyngk.Coordinates(c,l);
         return celClone;

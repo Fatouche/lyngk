@@ -56,8 +56,31 @@ Lyngk.Engine = function () {
         }
     };
 
+    var deplacementOK = function (init,dest) {
+        var dac = false;
+        var test;
+        if (init.charAt(0) === dest.charAt(0)){
+
+            test = parseInt(init.charAt(1)) - parseInt(dest.charAt(1));
+            if(test == 1 || test == -1){
+                dac =true ;
+            }
+        }else if (init.charAt(0) > dest.charAt(0)){
+            test = parseInt(init.charAt(1)) - parseInt(dest.charAt(1));
+            if(test == 1 || test == 0){
+                dac =true ;
+            }
+        }else if (init.charAt(0) < dest.charAt(0)){
+            test = parseInt(init.charAt(1)) - parseInt(dest.charAt(1));
+            if(test == 0 || test == -1){
+                dac =true ;
+            }
+        }
+        return dac;
+    };
+
     this.deplace = function(a,b) {
-        if(coordonneeInterssection[b].getState()!= Lyngk.State.VACANT) {
+        if(coordonneeInterssection[b].getState()!= Lyngk.State.VACANT && deplacementOK(a,b)) {
             var piece = coordonneeInterssection[a].getPiece();
             for (var p in piece) {
                 coordonneeInterssection[b].pose(piece[p].getColor());

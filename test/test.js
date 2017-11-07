@@ -190,3 +190,20 @@ LyngkTestCase.prototype.test17 = function () {
     assertEquals(plateau["B2"].getState(),Lyngk.State.VACANT);
 
 };
+
+LyngkTestCase.prototype.test18 = function () {
+    var engine = new Lyngk.Engine();
+    engine.initPlateauCouleur();
+    var plateau = engine.plateau();
+
+    var couleurTest = plateau["B2"].getColor();
+
+    engine.deplace("C2","B3");
+
+    assertEquals(plateau["B3"].getHauteur(),1);
+    assertEquals(plateau["C2"].getHauteur(),1);
+
+    assertEquals(plateau["B3"].getState(),Lyngk.State.ONE_PIECE);
+    assertEquals(plateau["B2"].getState(),Lyngk.State.ONE_PIECE);
+
+};
