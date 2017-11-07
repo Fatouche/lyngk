@@ -21,15 +21,11 @@ Lyngk.Intersection = function () {
         pieces.push(new Lyngk.Piece(colo));
     };
 
-    this.getColor=function(){
-        return pieces[pieces.length-1].getColor();
-    };
-
     this.getHauteur=function(){
         return pieces.length;
     };
 
-    this.topPiece=function(){
+    this.getTopPiece=function(){
         return pieces[pieces.length-1];
     };
 
@@ -37,6 +33,9 @@ Lyngk.Intersection = function () {
         return pieces;
     };
 
+    this.getColor=function(){
+        return pieces[pieces.length-1].getColor();
+    };
 
     this.remove=function(i){
         pieces = pieces.slice(i,i);

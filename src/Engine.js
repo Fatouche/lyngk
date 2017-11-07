@@ -7,12 +7,23 @@ Lyngk.Engine = function () {
 
     var coordonneeInterssection = {};
 
+    var init = function()
+    {
+        var coordo = Lyngk.tab;
+
+        for(var i = 0; i < coordo.length; i++)
+        {
+            coordonneeInterssection[coordo[i]] = new Lyngk.Intersection();
+        }
+    };
+
+
     this.initPlateau = function()
     {
         for (var coord in coordonneeInterssection) {
             if (coordonneeInterssection.hasOwnProperty(coord))
             {
-                coordonneeInterssection[coord].poser(Lyngk.Color.IVORY);
+                coordonneeInterssection[coord].pose(Lyngk.Color.IVORY);
             }
         }
     };
@@ -46,8 +57,6 @@ Lyngk.Engine = function () {
     };
 
     this.deplace = function(a,b) {
-        coordonneeInterssection[b].pose(coordonneeInterssection[a].topPiece().getColor());
-        coordonneeInterssection[a].remove();
         var piece = coordonneeInterssection[a].getPiece();
         for (var p in piece){
             coordonneeInterssection[b].pose(piece[p].getColor());
@@ -59,5 +68,7 @@ Lyngk.Engine = function () {
     {
         return coordonneeInterssection;
     };
+
+    init();
 
 };
