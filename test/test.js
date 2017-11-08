@@ -296,3 +296,27 @@ LyngkTestCase.prototype.test24 = function () {
 
   assertEquals(engine.getPlayer(),0);
 };
+
+LyngkTestCase.prototype.test25 = function () {
+    var engine = new Lyngk.Engine();
+
+    engine.initPlateauCouleur();
+    engine.deplace("A3","B3");
+
+    assertEquals(engine.getPlayer(),1);
+};
+
+LyngkTestCase.prototype.test26 = function () {
+    var engine = new Lyngk.Engine();
+    engine.initPlateauCouleur();
+
+    engine.demandeCouleur(Lyngk.Color.RED);
+
+    engine.deplace("A3","B3");
+
+    engine.demandeCouleur(Lyngk.Color.GREEN);
+
+    assertEquals(engine.getDemandeCouleur(0),Lyngk.Color.RED);
+    assertEquals(engine.getDemandeCouleur(1),Lyngk.Color.GREEN);
+
+};

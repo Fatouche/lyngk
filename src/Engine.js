@@ -7,7 +7,9 @@ Lyngk.Engine = function () {
 
     var coordonneeInterssection = {};
     var player;
-
+    var couleurDemandeJ1 = [];
+    var couleurDemandeJ2 = [];
+    
     var init = function()
     {
         var coordo = Lyngk.tab;
@@ -23,6 +25,13 @@ Lyngk.Engine = function () {
         return player;
     };
 
+    var playerSuivant = function () {
+      if(player == 1) {
+          player = 2;
+      }else {
+          player = 1;
+      }
+    };
 
     this.initPlateau = function()
     {
@@ -96,10 +105,31 @@ Lyngk.Engine = function () {
                                 coordonneeInterssection[b].pose(piece[p].getColor());
                                 coordonneeInterssection[a].remove(parseInt(p));
                             }
+                            playerSuivant();
                         }
                     }
                 }
             }
+        }
+    };
+
+    this.getDemandeCouleur = function (i){
+        if(i == 1){
+            return couleurDemandeJ1;
+        }else{
+            return couleurDemandeJ2;
+        }
+    };
+
+    this.demandeCouleur = function (couleur){
+        if(couleurDemandeJ1.indexOf(couleur) == -1 && couleurDemandeJ2.indexOf(couleur) == -1){
+            if(this.getPlayer() == 1){
+                couleurDemandeJ1.push(couleur);
+            }else{
+                couleurDemandeJ2.push(couleur);
+            }
+        }else{
+            console.log("la couleur n'a pas pu etre reclammer");
         }
     };
 
