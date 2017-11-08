@@ -84,16 +84,33 @@ Lyngk.Engine = function () {
             if(deplacementOK(a,b)) {
                 if (coordonneeInterssection[a].getState() != Lyngk.State.FULL_STACK) {
                     if(coordonneeInterssection[a].getHauteur() >= coordonneeInterssection[b].getHauteur()) {
-                        var piece = coordonneeInterssection[a].getPiece();
-                        for (var p in piece) {
-                            coordonneeInterssection[b].pose(piece[p].getColor());
-                            coordonneeInterssection[a].remove(parseInt(p));
+                        if(couleurTest(a,b)) {
+                            var piece = coordonneeInterssection[a].getPiece();
+                            for (var p in piece) {
+                                coordonneeInterssection[b].pose(piece[p].getColor());
+                                coordonneeInterssection[a].remove(parseInt(p));
+                            }
                         }
                     }
                 }
             }
         }
     };
+
+    var couleurTest = function (a,b) {
+        var ok = true;
+        var piecea = coordonneeInterssection[a].getPiece();
+        var pieceb = coordonneeInterssection[b].getPiece();
+        for (var compteur in piecea) {
+            for (var compt2 in pieceb) {
+                if (pieceb[compt2].getColor() == piecea[compteur].getColor() && pieceb[compt2].getColor() != Lyngk.Color.WHITE) {
+                    ok = false;
+                }
+            }
+        }
+        return ok;
+    };
+
 
     this.plateau = function()
     {

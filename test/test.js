@@ -270,3 +270,25 @@ LyngkTestCase.prototype.test22 = function () {
     assertEquals(plateau["D3"].getHauteur(),4);
     assertEquals(plateau["E3"].getHauteur(),1);
 };
+
+LyngkTestCase.prototype.test23 = function () {
+    var engine = new Lyngk.Engine();
+    engine.initPlateauCouleur();
+    var plateau = engine.plateau();
+
+    var pieceTest1 = plateau["I7"].getPiece();
+    var piecehTest2 = plateau["H6"].getPiece();
+    var tailleT1 = plateau["I7"].getHauteur();
+    var tailleT2 = plateau["H6"].getHauteur();
+
+    engine.deplace("I7","H6");
+
+    for (var cmpt1 in pieceTest1){
+        for (var compt2 in piecehTest2){
+            if(piecehTest2[compt2].getColor() == pieceTest1[cmpt1].getColor() && piecehTest2[compt2].getColor()!=Lyngk.Color.WHITE){
+                assertEquals(plateau["I7"].getHauteur(),tailleT1);
+                assertEquals(plateau["H6"].getHauteur(),tailleT2);
+            }
+        }
+    }
+};
