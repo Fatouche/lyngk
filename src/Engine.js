@@ -80,7 +80,7 @@ Lyngk.Engine = function () {
     };
 
     this.deplace = function(a,b) {
-        if(coordonneeInterssection[b].getState()!= Lyngk.State.VACANT && deplacementOK(a,b)) {
+        if(coordonneeInterssection[b].getState()!= Lyngk.State.VACANT && deplacementOK(a,b) && coordonneeInterssection[a].getState() != Lyngk.State.FULL_STACK) {
             var piece = coordonneeInterssection[a].getPiece();
             for (var p in piece) {
                 coordonneeInterssection[b].pose(piece[p].getColor());

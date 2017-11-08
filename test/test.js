@@ -223,3 +223,23 @@ LyngkTestCase.prototype.test19 = function () {
     assertTrue(plateau["H5"].getHauteur() === 3 && plateau["F3"].getHauteur() === 1 );
 
 };
+
+LyngkTestCase.prototype.test20 = function () {
+    var engine = new Lyngk.Engine();
+    engine.initPlateauCouleur();
+    var plateau = engine.plateau();
+
+    engine.deplace("A3","B3");
+    engine.deplace("B3","C3");
+    engine.deplace("C3","D3");
+    engine.deplace("D3","E3");
+
+    engine.deplace("E3","F3");
+
+    assertEquals(plateau["E3"].getHauteur(),5);
+    assertEquals(plateau["E3"].getState(),Lyngk.State.FULL_STACK);
+
+    assertEquals(plateau["F3"].getHauteur(),1);
+    assertEquals(plateau["F3"].getState(),Lyngk.State.ONE_PIECE);
+
+};
