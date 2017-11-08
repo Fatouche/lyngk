@@ -80,11 +80,17 @@ Lyngk.Engine = function () {
     };
 
     this.deplace = function(a,b) {
-        if(coordonneeInterssection[b].getState()!= Lyngk.State.VACANT && deplacementOK(a,b) && coordonneeInterssection[a].getState() != Lyngk.State.FULL_STACK) {
-            var piece = coordonneeInterssection[a].getPiece();
-            for (var p in piece) {
-                coordonneeInterssection[b].pose(piece[p].getColor());
-                coordonneeInterssection[a].remove(parseInt(p));
+        if(coordonneeInterssection[b].getState()!= Lyngk.State.VACANT ) {
+            if(deplacementOK(a,b)) {
+                if (coordonneeInterssection[a].getState() != Lyngk.State.FULL_STACK) {
+                    if(coordonneeInterssection[a].getHauteur() >= coordonneeInterssection[b].getHauteur()) {
+                        var piece = coordonneeInterssection[a].getPiece();
+                        for (var p in piece) {
+                            coordonneeInterssection[b].pose(piece[p].getColor());
+                            coordonneeInterssection[a].remove(parseInt(p));
+                        }
+                    }
+                }
             }
         }
     };
