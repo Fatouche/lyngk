@@ -16,6 +16,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/lyngk$Tests.coverage" NAME="Tests Coverage Results" MODIFIED="1510156475177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JstdCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="jsTestDriver.conf" pinned="false" current-in-tab="false">
@@ -28,31 +31,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="308" column="24" lean-forward="false" selection-start-line="308" selection-start-column="24" selection-end-line="308" selection-end-column="24" />
+            <state relative-caret-position="136">
+              <caret line="330" column="28" lean-forward="false" selection-start-line="330" selection-start-column="28" selection-end-line="330" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Engine.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Engine.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Engine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="18" />
+            <state relative-caret-position="629">
+              <caret line="112" column="33" lean-forward="false" selection-start-line="112" selection-start-column="33" selection-end-line="112" selection-end-column="33" />
               <folding>
-                <element signature="e#527#557#0" expanded="false" />
-                <element signature="e#596#693#0" expanded="false" />
-                <element signature="e#734#967#0" expanded="false" />
-                <element signature="e#1014#1317#0" expanded="false" />
-                <element signature="e#1365#1828#0" expanded="false" />
-                <element signature="e#1876#2573#0" expanded="false" />
-                <element signature="e#2609#3431#0" expanded="false" />
-                <element signature="e#4058#4539#0" expanded="false" />
-                <element signature="e#4577#4624#0" expanded="false" />
+                <element signature="e#356#558#0" expanded="false" />
+                <element signature="e#593#623#0" expanded="false" />
+                <element signature="e#663#695#0" expanded="false" />
+                <element signature="e#729#839#0" expanded="false" />
+                <element signature="e#878#975#0" expanded="false" />
+                <element signature="e#1016#1249#0" expanded="false" />
+                <element signature="e#1296#1599#0" expanded="false" />
+                <element signature="e#1647#2155#0" expanded="false" />
+                <element signature="e#2203#2900#0" expanded="false" />
+                <element signature="e#2936#4171#0" expanded="false" />
+                <element signature="e#4215#4341#0" expanded="false" />
+                <element signature="e#4388#4749#0" expanded="false" />
+                <element signature="e#4798#5279#0" expanded="false" />
+                <element signature="e#5316#5363#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -154,7 +162,7 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -167,31 +175,7 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="lyngk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lyngk" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lyngk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lyngk" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lyngk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lyngk" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -329,7 +313,7 @@
       <workItem from="1507809351036" duration="183000" />
       <workItem from="1507809543468" duration="4174000" />
       <workItem from="1510075014332" duration="12962000" />
-      <workItem from="1510133156761" duration="13573000" />
+      <workItem from="1510133156761" duration="19212000" />
     </task>
     <task id="LOCAL-00001" summary="Test Histoire 1">
       <created>1506932783235</created>
@@ -576,53 +560,62 @@
       <option name="project" value="LOCAL" />
       <updated>1510148465072</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Histoire 26 -&gt; code + test fini">
+      <created>1510152209065</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1510152209065</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Tests - 2017.11.08 at 15h 33m 13s.xml">
+    <history-entry file="Tests - 2017.11.08 at 17h 05m 31s.xml">
       <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
     </history-entry>
-    <history-entry file="Tests - 2017.11.08 at 15h 33m 43s.xml">
+    <history-entry file="Tests - 2017.11.08 at 17h 07m 30s.xml">
       <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
     </history-entry>
-    <history-entry file="Tests - 2017.11.08 at 15h 35m 31s.xml">
+    <history-entry file="Tests - 2017.11.08 at 17h 08m 58s.xml">
       <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
     </history-entry>
-    <history-entry file="Tests - 2017.11.08 at 15h 36m 25s.xml">
+    <history-entry file="Tests - 2017.11.08 at 17h 09m 37s.xml">
       <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
     </history-entry>
-    <history-entry file="Tests - 2017.11.08 at 15h 37m 52s.xml">
+    <history-entry file="Tests - 2017.11.08 at 17h 10m 41s.xml">
       <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
     </history-entry>
-    <history-entry file="Tests - 2017.11.08 at 15h 39m 34s.xml">
+    <history-entry file="Tests - 2017.11.08 at 17h 11m 53s.xml">
       <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
     </history-entry>
-    <history-entry file="Tests - 2017.11.08 at 15h 39m 59s.xml">
+    <history-entry file="Tests - 2017.11.08 at 17h 13m 13s.xml">
       <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
     </history-entry>
-    <history-entry file="Tests - 2017.11.08 at 15h 40m 24s.xml">
+    <history-entry file="Tests - 2017.11.08 at 17h 13m 38s.xml">
       <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
     </history-entry>
-    <history-entry file="Tests - 2017.11.08 at 15h 42m 27s.xml">
+    <history-entry file="Tests - 2017.11.08 at 17h 15m 01s.xml">
       <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
     </history-entry>
-    <history-entry file="Tests - 2017.11.08 at 15h 42m 51s.xml">
+    <history-entry file="Tests - 2017.11.08 at 17h 15m 21s.xml">
       <configuration name="Tests" configurationId="JsTestDriver-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63604000" />
+    <option name="totallyTimeSpent" value="69243000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1296875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37103593" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37103593" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -632,7 +625,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -669,7 +661,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Histoire 5 -&gt; code Fini" />
     <MESSAGE value="Histoire 6 -&gt; test Fini" />
     <MESSAGE value="Histoire 7 -&gt; test Fini" />
     <MESSAGE value="Histoire 7 -&gt; code Fini" />
@@ -694,11 +685,12 @@
     <MESSAGE value="Histoire 23 -&gt; code + test fini" />
     <MESSAGE value="Histoire 24 -&gt; test fail" />
     <MESSAGE value="Histoire 24 -&gt; code + test fini" />
-    <option name="LAST_COMMIT_MESSAGE" value="Histoire 24 -&gt; code + test fini" />
+    <MESSAGE value="Histoire 26 -&gt; code + test fini" />
+    <option name="LAST_COMMIT_MESSAGE" value="Histoire 26 -&gt; code + test fini" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -836,24 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Engine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="18" />
-          <folding>
-            <element signature="e#527#557#0" expanded="false" />
-            <element signature="e#596#693#0" expanded="false" />
-            <element signature="e#734#967#0" expanded="false" />
-            <element signature="e#1014#1317#0" expanded="false" />
-            <element signature="e#1365#1828#0" expanded="false" />
-            <element signature="e#1876#2573#0" expanded="false" />
-            <element signature="e#2609#3431#0" expanded="false" />
-            <element signature="e#4058#4539#0" expanded="false" />
-            <element signature="e#4577#4624#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jsTestDriver.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -864,9 +838,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="308" column="24" lean-forward="false" selection-start-line="308" selection-start-column="24" selection-end-line="308" selection-end-column="24" />
+        <state relative-caret-position="136">
+          <caret line="330" column="28" lean-forward="false" selection-start-line="330" selection-start-column="28" selection-end-line="330" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Engine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="112" column="33" lean-forward="false" selection-start-line="112" selection-start-column="33" selection-end-line="112" selection-end-column="33" />
+          <folding>
+            <element signature="e#356#558#0" expanded="false" />
+            <element signature="e#593#623#0" expanded="false" />
+            <element signature="e#663#695#0" expanded="false" />
+            <element signature="e#729#839#0" expanded="false" />
+            <element signature="e#878#975#0" expanded="false" />
+            <element signature="e#1016#1249#0" expanded="false" />
+            <element signature="e#1296#1599#0" expanded="false" />
+            <element signature="e#1647#2155#0" expanded="false" />
+            <element signature="e#2203#2900#0" expanded="false" />
+            <element signature="e#2936#4171#0" expanded="false" />
+            <element signature="e#4215#4341#0" expanded="false" />
+            <element signature="e#4388#4749#0" expanded="false" />
+            <element signature="e#4798#5279#0" expanded="false" />
+            <element signature="e#5316#5363#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

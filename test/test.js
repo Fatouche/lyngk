@@ -320,3 +320,57 @@ LyngkTestCase.prototype.test26 = function () {
     assertEquals(engine.getDemandeCouleur(1),Lyngk.Color.GREEN);
 
 };
+
+LyngkTestCase.prototype.test27 = function () {
+    var engine = new Lyngk.Engine();
+    engine.initPlateauCouleur();
+
+    var plateau = engine.plateau();
+
+    //Modification des couleurs sur la route joueur 1
+    plateau["B3"].remove(1);
+    plateau["B3"].pose(Lyngk.Color.RED);
+
+    plateau["C3"].remove(1);
+    plateau["C3"].pose(Lyngk.Color.WHITE);
+
+    plateau["C2"].remove(1);
+    plateau["C2"].pose(Lyngk.Color.GREEN);
+
+    plateau["D2"].remove(1);
+    plateau["D2"].pose(Lyngk.Color.BLACK);
+
+    //joueur1
+    engine.demandeCouleur(Lyngk.Color.BLUE);
+    engine.deplace("A3","B3");
+    console.log("B3 " + plateau["B3"].getHauteur());
+
+    //joueur2
+    engine.deplace("H6","G5");
+
+    //joueur1
+    engine.deplace("B3","C3");
+    console.log("C3 " + plateau["C3"].getHauteur());
+
+    //joueur2
+    engine.deplace("G5","G6");
+
+    //joueur1
+    engine.deplace("C3","C2");
+    console.log("C2 " + plateau["D3"].getHauteur());
+
+    //joueur2
+    engine.deplace("G6","H7");
+
+    //joueur1, marque un point
+    engine.deplace("C2","D2");
+    console.log("D2 " + plateau["E3"].getHauteur());
+
+    console.log("Nombre piece plateau : "+ engine.getNbPieceRes());
+    console.log("Joueur : "+ engine.getPlayer());
+    console.log("score : "+ engine.getScore(0));
+
+    assertEquals(engine.getScore(0), 1);
+    assertEquals(engine.getNbPieceRes(),43);
+
+};

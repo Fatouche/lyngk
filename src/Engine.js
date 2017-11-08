@@ -9,6 +9,9 @@ Lyngk.Engine = function () {
     var player;
     var couleurDemandeJ1 = [];
     var couleurDemandeJ2 = [];
+    var nbPieceRes = 0;
+    var scoreJ1 = 0;
+    var scoreJ2 = 0;
     
     var init = function()
     {
@@ -25,11 +28,23 @@ Lyngk.Engine = function () {
         return player;
     };
 
+    this.getNbPieceRes = function () {
+      return nbPieceRes;
+    };
+
+    this.getScore = function(p){
+        if ( p == 0){
+            return scoreJ1;
+        }else{
+            return scoreJ2;
+        }
+    };
+
     var playerSuivant = function () {
-      if(player == 1) {
-          player = 2;
-      }else {
+      if(player == 0) {
           player = 1;
+      }else {
+          player = 0;
       }
     };
 
@@ -67,6 +82,7 @@ Lyngk.Engine = function () {
                 }while(dispo[randomColor] <= 0)
                 dispo[randomColor]--;
                 coordonneeInterssection[coor].pose(randomColor);
+                nbPieceRes = nbPieceRes + 1;
             }
         }
     };
@@ -105,11 +121,25 @@ Lyngk.Engine = function () {
                                 coordonneeInterssection[b].pose(piece[p].getColor());
                                 coordonneeInterssection[a].remove(parseInt(p));
                             }
-                            playerSuivant();
                         }
                     }
                 }
             }
+        }
+
+        if(coordonneeInterssection[b].getState() == Lyngk.State.FULL_STACK){
+            console.log("passer dans FULL STACK");
+            if(player === 0){
+                scoreJ1 = scoreJ1 + 1;
+                console.log("score J1 " + scoreJ1);
+
+            }else{
+                scoreJ2 = scoreJ2 + 1;
+                console.log("score J2 " + scoreJ2);
+            }
+            playerSuivant();
+        }else{
+            playerSuivant();
         }
     };
 
@@ -147,7 +177,6 @@ Lyngk.Engine = function () {
         }
         return ok;
     };
-
 
     this.plateau = function()
     {
