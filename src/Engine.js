@@ -97,13 +97,14 @@ Lyngk.Engine = function () {
         }
     };
 
-    var couleurTest = function (a,b) {
+    var couleurTest = function (initial,dest) {
         var ok = true;
-        var piecea = coordonneeInterssection[a].getPiece();
-        var pieceb = coordonneeInterssection[b].getPiece();
-        for (var compteur in piecea) {
-            for (var compt2 in pieceb) {
-                if (pieceb[compt2].getColor() == piecea[compteur].getColor() && pieceb[compt2].getColor() != Lyngk.Color.WHITE) {
+        var pieceIni = coordonneeInterssection[initial].getPiece();
+        var pieceDest = coordonneeInterssection[dest].getPiece();
+
+        for (var compteur in pieceIni) {
+            for (var compt2 in pieceDest) {
+                if (pieceDest[compt2].getColor() == pieceIni[compteur].getColor() && pieceDest[compt2].getColor() != Lyngk.Color.WHITE) {
                     ok = false;
                 }
             }
