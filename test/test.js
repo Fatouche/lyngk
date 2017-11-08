@@ -289,3 +289,10 @@ LyngkTestCase.prototype.test23 = function () {
     assertEquals(plateau["A3"].getHauteur(),2);
     assertEquals(plateau["B3"].getHauteur(),2);
 };
+
+LyngkTestCase.prototype.test24 = function () {
+  var engine = new Lyngk.Engine();
+  engine.initPlateauCouleur();
+
+  assertEquals(engine.getPlayer(),0);
+};
