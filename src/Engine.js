@@ -137,6 +137,12 @@ Lyngk.Engine = function () {
                 scoreJ2 = scoreJ2 + 1;
                 console.log("score J2 " + scoreJ2);
             }
+
+            for (var cmpte in coordonneeInterssection[b].getPiece()){
+                coordonneeInterssection[b].remove(cmpte);
+                nbPieceRes = nbPieceRes -1;
+            }
+
             playerSuivant();
         }else{
             playerSuivant();

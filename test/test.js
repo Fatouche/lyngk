@@ -328,6 +328,9 @@ LyngkTestCase.prototype.test27 = function () {
     var plateau = engine.plateau();
 
     //Modification des couleurs sur la route joueur 1
+    plateau["A3"].remove(1);
+    plateau["A3"].pose(Lyngk.Color.BLUE);
+
     plateau["B3"].remove(1);
     plateau["B3"].pose(Lyngk.Color.RED);
 
@@ -369,8 +372,8 @@ LyngkTestCase.prototype.test27 = function () {
     console.log("Nombre piece plateau : "+ engine.getNbPieceRes());
     console.log("Joueur : "+ engine.getPlayer());
     console.log("score : "+ engine.getScore(0));
-
+    
     assertEquals(engine.getScore(0), 1);
-    assertEquals(engine.getNbPieceRes(),43);
+    assertEquals(engine.getNbPieceRes(),38);
 
 };
