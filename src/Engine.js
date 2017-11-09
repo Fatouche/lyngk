@@ -5,121 +5,127 @@ Lyngk.Color = {BLACK: 0, IVORY: 1, BLUE: 2, RED: 3, GREEN: 4, WHITE: 5};
 
 Lyngk.Engine = function () {
 
-    var coordonneeInterssection = {};
+    var varGameBoard = {};
     var player;
-    var couleurDemandeJ1 = [];
-    var couleurDemandeJ2 = [];
-    var nbPieceRes = 0;
-    var scoreJ1 = 0;
-    var scoreJ2 = 0;
-    
-    var init = function()
-    {
-        var coordo = Lyngk.tab;
+    var colorRequestPlayer1 = [];
+    var colorRequestPlayer2 = [];
+    var PieceNumber = 0;
+    var scorePlayer1 = 0;
+    var scorePlayer2 = 0;
+
+    var init = function () {
+        var coordinates = Lyngk.valideCordinate;
         player = 0;
 
-        for(var i = 0; i < coordo.length; i++)
-        {
-            coordonneeInterssection[coordo[i]] = new Lyngk.Intersection();
+        for (var i = 0; i < coordinates.length; i++) {
+            varGameBoard[coordinates[i]] = new Lyngk.Intersection();
         }
     };
 
-    this.getPlayer = function (){
+    this.getPlayer = function () {
         return player;
     };
 
-    this.getNbPieceRes = function () {
-      return nbPieceRes;
+    this.getPieceNumber = function () {
+        return PieceNumber;
     };
 
-    this.getScore = function(p){
-        if ( p == 0){
-            return scoreJ1;
-        }else{
-            return scoreJ2;
+    this.getScore = function (currentPlayer) {
+        if (currentPlayer === 0) {
+            return scorePlayer1;
+        } else {
+            return scorePlayer2;
         }
     };
 
-    var playerSuivant = function () {
-      if(player == 0) {
-          player = 1;
-      }else {
-          player = 0;
-      }
+    var nextPlayer = function () {
+        if (player === 0) {
+            player = 1;
+        } else {
+            player = 0;
+        }
     };
 
-    this.initPlateau = function()
-    {
-        for (var coord in coordonneeInterssection) {
-            if (coordonneeInterssection.hasOwnProperty(coord))
-            {
-                coordonneeInterssection[coord].pose(Lyngk.Color.IVORY);
+    this.initBoardGame = function () {
+        for (var coordinates in varGameBoard) {
+            if (varGameBoard.hasOwnProperty(coordinates)) {
+                varGameBoard[coordinates].putPiece(Lyngk.Color.IVORY);
             }
         }
     };
 
-    this.plateau1PieceFull = function()
-    {
-        for (var coord in coordonneeInterssection) {
-            if (coordonneeInterssection.hasOwnProperty(coord))
-            {
-                if(coordonneeInterssection[coord].getState() != Lyngk.State.ONE_PIECE)
-                    return false;
+    var searchBoardGameOnePiece = function (coordinates) {
+        if (varGameBoard.hasOwnProperty(coordinates)) {
+            if (varGameBoard[coordinates].getState() !== Lyngk.State.ONE_PIECE){
+                return false;
             }
+        }
+    };
+
+    this.BoardGamePieceFull = function () {
+        for (var coordinates in varGameBoard) {
+            searchBoardGameOnePiece(coordinates);
         }
         return true;
     };
 
-    this.initPlateauCouleur = function()
-    {
-        var dispo = [8,8,8,8,8,3];
-        for (var coor in coordonneeInterssection) {
-            if (coordonneeInterssection.hasOwnProperty(coor))
-            {
-                var randomColor;
-                do{
-                    randomColor = Math.floor(Math.random() * 6);
-                }while(dispo[randomColor] <= 0)
-                dispo[randomColor]--;
-                coordonneeInterssection[coor].pose(randomColor);
-                nbPieceRes = nbPieceRes + 1;
-            }
+    var fillGameBoard = function (availablePiece, coordinates) {
+        if (varGameBoard.hasOwnProperty(coordinates)) {
+            var randomColor;
+            do {
+                randomColor = Math.floor(Math.random() * 6);
+            } while (availablePiece[randomColor] <= 0);
+            availablePiece[randomColor]--;
+            varGameBoard[coordinates].putPiece(randomColor);
+            PieceNumber = PieceNumber + 1;
         }
     };
 
-    var deplacementOK = function (init,dest) {
-        var dac = false;
-        var test;
-        if (init.charAt(0) === dest.charAt(0)){
-
-            test = parseInt(init.charAt(1)) - parseInt(dest.charAt(1));
-            if(test == 1 || test == -1){
-                dac =true ;
-            }
-        }else if (init.charAt(0) > dest.charAt(0)){
-            test = parseInt(init.charAt(1)) - parseInt(dest.charAt(1));
-            if(test == 1 || test == 0){
-                dac =true ;
-            }
-        }else if (init.charAt(0) < dest.charAt(0)){
-            test = parseInt(init.charAt(1)) - parseInt(dest.charAt(1));
-            if(test == 0 || test == -1){
-                dac =true ;
-            }
+    this.initColorBoardGame = function () {
+        var availablePiece = [8, 8, 8, 8, 8, 3];
+        for (var coordinates in varGameBoard) {
+            fillGameBoard(availablePiece, coordinates);
         }
-        return dac;
     };
 
-    this.deplace = function(a,b) {
-        if(coordonneeInterssection[b].getState()!= Lyngk.State.VACANT ) {
-            if(deplacementOK(a,b)) {
-                if (coordonneeInterssection[a].getState() != Lyngk.State.FULL_STACK) {
-                    if(coordonneeInterssection[a].getHauteur() >= coordonneeInterssection[b].getHauteur()) {
-                        if(couleurTest(a,b)) {
-                            var piece = coordonneeInterssection[a].getPiece();
-                            for (var p in piece) {
-                                coordonneeInterssection[b].pose(piece[p].getColor());
-                                coordonneeInterssection[a].remove(parseInt(p));
+    var moveOK = function (source, destination) {
+        var myTest = false;
+        var range = parseInt(source.charAt(1)) - parseInt(destination.charAt(1));
+        if (source.charAt(0) === destination.charAt(0)) {
+            myTest = (range === 1 || range === -1);
+        } else if (source.charAt(0) > destination.charAt(0)) {
+            myTest = (range === 1 || range === 0);
+        } else if (source.charAt(0) < destination.charAt(0)) {
+            myTest = (range === 0 || range === -1);
+        }
+        return myTest;
+    };
+
+    var addPoint = function (){
+        if (player === 0) {
+            scorePlayer1 = scorePlayer1 + 1;
+        } else {
+            scorePlayer2 = scorePlayer2 + 1;
+        }
+    };
+
+    var removeStak = function (stak) {
+        for (var currentPieceRemove in varGameBoard[stak].getPiece()) {
+            varGameBoard[stak].removePiece(currentPieceRemove);
+            PieceNumber = PieceNumber - 1;
+        }
+    };
+
+    this.move = function (source, destination) {
+        if (varGameBoard[destination].getState() != Lyngk.State.VACANT) {
+            if (moveOK(source, destination)) {
+                if (varGameBoard[source].getState() != Lyngk.State.FULL_STACK) {
+                    if (varGameBoard[source].getHeight() >= varGameBoard[destination].getHeight()) {
+                        if (colorTest(source, destination)) {
+                            var currentPiece = varGameBoard[source].getPiece();
+                            for (var movingPiece in currentPiece) {
+                                varGameBoard[destination].putPiece(currentPiece[movingPiece].getColor());
+                                varGameBoard[source].removePiece(parseInt(movingPiece));
                             }
                         }
                     }
@@ -127,66 +133,57 @@ Lyngk.Engine = function () {
             }
         }
 
-        if(coordonneeInterssection[b].getState() == Lyngk.State.FULL_STACK){
-            console.log("passer dans FULL STACK");
-            if(player === 0){
-                scoreJ1 = scoreJ1 + 1;
-                console.log("score J1 " + scoreJ1);
-
-            }else{
-                scoreJ2 = scoreJ2 + 1;
-                console.log("score J2 " + scoreJ2);
-            }
-
-            for (var cmpte in coordonneeInterssection[b].getPiece()){
-                coordonneeInterssection[b].remove(cmpte);
-                nbPieceRes = nbPieceRes -1;
-            }
-
-            playerSuivant();
-        }else{
-            playerSuivant();
+        if (varGameBoard[destination].getState() == Lyngk.State.FULL_STACK) {
+            addPoint();
+            removeStak(destination);
+            nextPlayer();
+        } else {
+            nextPlayer();
         }
     };
 
-    this.getDemandeCouleur = function (i){
-        if(i == 1){
-            return couleurDemandeJ1;
-        }else{
-            return couleurDemandeJ2;
+    this.getcolorRequest = function (color) {
+        if (color === 1) {
+            return colorRequestPlayer1;
+        } else {
+            return colorRequestPlayer2;
         }
     };
 
-    this.demandeCouleur = function (couleur){
-        if(couleurDemandeJ1.indexOf(couleur) == -1 && couleurDemandeJ2.indexOf(couleur) == -1){
-            if(this.getPlayer() == 1){
-                couleurDemandeJ1.push(couleur);
-            }else{
-                couleurDemandeJ2.push(couleur);
-            }
-        }else{
-            console.log("la couleur n'a pas pu etre reclammer");
-        }
-    };
-
-    var couleurTest = function (initial,dest) {
-        var ok = true;
-        var pieceIni = coordonneeInterssection[initial].getPiece();
-        var pieceDest = coordonneeInterssection[dest].getPiece();
-
-        for (var compteur in pieceIni) {
-            for (var compt2 in pieceDest) {
-                if (pieceDest[compt2].getColor() == pieceIni[compteur].getColor() && pieceDest[compt2].getColor() != Lyngk.Color.WHITE) {
-                    ok = false;
-                }
+    this.colorRequest = function (color) {
+        if (colorRequestPlayer1.indexOf(color) == -1 && colorRequestPlayer2.indexOf(color) === -1) {
+            if (this.getPlayer() === 1) {
+                colorRequestPlayer1.push(color);
+            } else {
+                colorRequestPlayer2.push(color);
             }
         }
-        return ok;
     };
 
-    this.plateau = function()
-    {
-        return coordonneeInterssection;
+    var colorPieceStackDifferent = function(sourcePiece,destinationPiece,pieceColorSourceStak,pieceColorDestinationStak){
+        if (destinationPiece[pieceColorDestinationStak].getColor() === sourcePiece[pieceColorSourceStak].getColor()) {
+            if(destinationPiece[pieceColorDestinationStak].getColor() != Lyngk.Color.WHITE) {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    var colorTest = function (source, destination) {
+        var myTest = true;
+        var sourcePiece = varGameBoard[source].getPiece();
+        var destinationPiece = varGameBoard[destination].getPiece();
+
+        for (var pieceColorSourceStak in sourcePiece) {
+            for (var pieceColorDestinationStak in destinationPiece) {
+                myTest = colorPieceStackDifferent(sourcePiece,destinationPiece,pieceColorSourceStak,pieceColorDestinationStak);
+            }
+        }
+        return myTest;
+    };
+
+    this.board = function () {
+        return varGameBoard;
     };
 
     init();
